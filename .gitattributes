@@ -1,7 +1,7 @@
 # Auto-detect text files and normalize line endings
 * text=auto
 
-# Explicitly declare file types to normalize
+# Explicitly declare text files to normalize
 *.js text
 *.jsx text
 *.ts text
