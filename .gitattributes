@@ -1,0 +1,34 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare text files you want to always normalize
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.css text
+*.scss text
+*.html text
+*.json text
+*.md text
+*.txt text
+
+# Firebase / config files
+.firebase/* text
+.firebase.json text
+.firebaserc text
+firebase.json text
+
+# Do not convert binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+*.eot binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.mp3 binary

@@ -1,13 +1,943 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ===== Global Reset ===== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('/assets/bgimg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #112D4E;
+  cursor: default;
 }
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #112D4E;
+  padding: 10px 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #F9F7F7;
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
+}
+
+.navbar .logo:hover {
+  text-shadow: 0 0 6px #3F72AF, 0 0 12px #3F72AF;
+}
+
+.navbar .logo img {
+  width: 32px;
+  height: 32px;
+  transition: filter 0.3s ease;
+}
+
+.navbar .logo img:hover {
+  filter: drop-shadow(0 0 6px #3F72AF);
+}
+
+.navbar .nav-btn {
+  background: #3F72AF;
+  border: none;
+  color: #F9F7F7;
+  padding: 8px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.navbar .nav-btn:hover {
+  background: #c63636;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px #c80c0c;
+}
+
+/* ===== Homepage ===== */
+
+
+
+.home-container {
+  display: flex;
+  border: 2px soid #ccc;
+  padding:50px 0px 50px 50px; /* top right bottom left */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: white;
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent background */
+  backdrop-filter: blur(4px); /* the blur effect */
+  -webkit-backdrop-filter: blur(4px); /* Safari support */
+  
+  /* Optional: add a subtle border glow */
+  border: 1px solid rgba(255, 255, 255, 0.4);  
+}
+
+.home-left {
+  text-align: left;
+  max-width: 450px;
+  padding-top: 0%;
+}
+
+.brand {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #3F72AF;
+}
+
+.brand span {
+  color: #112D4E;
+}
+
+.tagline {
+  color: #112D4E;
+  font-size: 1.2rem;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.home-img {
+  width: 280px;
+  filter: brightness(0.95);
+  transition: transform 0.3s ease;
+}
+.home-img:hover {
+  transform: scale(1.06);
+}
+
+/* ===== Auth Panel ===== */
+.auth-panel {
+  width: 340px;
+  background: #DBE2EF;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(63, 114, 175, 0.2);
+  padding: 30px;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.auth-panel h2 {
+  color: #3F72AF;
+  margin-bottom: 20px;
+}
+
+.auth-panel input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid #3F72AF;
+  background: #F9F7F7;
+  color: #112D4E;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-panel input:focus {
+  border-color: #3F72AF;
+  box-shadow: 0 0 8px #3F72AF;
+}
+
+.auth-panel button {
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #3F72AF;
+  border: none;
+  border-radius: 14px;
+  color: #F9F7F7;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-panel button:hover {
+  background: #5A8CC1;
+  box-shadow: 0 0 15px #3F72AF;
+  transform: translateY(-1px);
+}
+
+/* ===== Sign Up Text ===== */
+.switch-text span {
+  cursor: pointer;
+  color: #3F72AF;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.switch-text span:hover {
+  text-decoration: underline;
+}
+
+/* ===== Role Slider ===== */
+.role-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.role-slider span {
+  font-weight: 500;
+  color: #112D4E;
+  transition: color 0.3s ease;
+}
+
+.role-slider span.active {
+  color: #3F72AF;
+}
+
+.slider-toggle {
+  position: relative;
+  width: 60px;
+  height: 28px;
+  background: #DBE2EF;
+  border-radius: 50px;
+  border: 1px solid #3F72AF;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.slider-toggle .thumb {
+  position: absolute;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #3F72AF, #5A8CC1);
+  transition: left 0.3s ease, background 0.3s ease;
+}
+
+.thumb.intern {
+  left: 2px;
+}
+.thumb.recruiter {
+  left: 34px;
+}
+
+/* ===== Internship Cards ===== */
+/* ===== Internship Cards Grid Layout (Updated) ===== */
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Max 3 per row */
+  gap: 24px;
+  margin-top: 30px;
+  justify-items: center;
+}
+
+.internship-card {
+  background: #DBE2EF;
+  border-radius: 14px;
+  padding: 22px;
+  width: 100%;
+  max-width: 320px; /* keeps 3 per row max */
+  box-shadow: 0 0 20px rgba(63, 114, 175, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.internship-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #3F72AF;
+}
+
+.internship-card h3 {
+  color: #3F72AF;
+  margin-bottom: 10px;
+}
+
+.internship-card p {
+  color: #112D4E;
+}
+
+/* Buttons inside cards */
+/* ===== Smaller Action Buttons ===== */
+/* ===== Equal-Length Action Buttons ===== */
+/* ===== Internship Cards Grid Layout ===== */
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* max 3 per row */
+  gap: 24px;
+  margin-top: 30px;
+  justify-items: center;
+}
+
+/* Each card takes full height of its grid cell */
+.internship-card {
+  background: #DBE2EF;
+  border-radius: 14px;
+  padding: 22px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 0 20px rgba(63, 114, 175, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ✅ ensures buttons stick to bottom */
+}
+
+.internship-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #3F72AF;
+}
+
+.internship-card h2 {
+  color: #3F72AF;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ===== Equal-Length Buttons and Alignment Fix ===== */
+/* ===== Internship Cards Grid Layout ===== */
+.internship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* max 3 per row */
+  gap: 24px;
+  margin-top: 30px;
+  justify-items: center;
+}
+
+/* Each card takes full height of its grid cell */
+/* ===== Internship Cards with Blur Glass Effect ===== */
+.internship-card {
+  position: relative;
+  background: rgba(219, 226, 239, 0.25); /* translucent light background */
+  backdrop-filter: blur(9px); /* ✅ main glass effect */
+  -webkit-backdrop-filter: blur(9px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 22px;
+  width: 100%;
+  max-width: 320px;
+
+  box-shadow: 0 4px 20px rgba(17, 45, 78, 0.25);
+  transition: all 0.35s ease;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.internship-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 25px rgba(63, 114, 175, 0.5);
+  background: rgba(219, 226, 239, 0.35); /* slightly brighter on hover */
+}
+
+/* Title */
+.internship-card h2 {
+  color: #3F72AF;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Text */
+.internship-card p {
+  color: #112D4E;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Keep existing equal-length buttons styling */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.apply-btn,
+.visit-btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #F9F7F7;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+/* Buttons (unchanged colors) */
+.apply-btn {
+  background-color: #00ADB5;
+}
+.apply-btn:hover {
+  background-color: #08c1c9;
+  box-shadow: 0 0 8px #00ADB5;
+}
+
+.visit-btn {
+  background-color: #3F72AF;
+}
+.visit-btn:hover {
+  background-color: #5A8CC1;
+  box-shadow: 0 0 8px #3F72AF;
+}
+
+/* Responsive fixes */
+@media (max-width: 480px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+  .apply-btn,
+  .visit-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+/* ===== Add Internship Panel ===== */
+.add-internship-panel {
+  background: #F9F7F7;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(63, 114, 175, 0.15);
+  max-width: 600px;
+  margin: 30px auto;
+  color: #112D4E;
+}
+
+.add-internship-panel h2 {
+  text-align: center;
+  color: #3F72AF;
+  margin-bottom: 22px;
+}
+
+.add-internship-form input,
+.add-internship-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  border: 1px solid #3F72AF;
+  background: #DBE2EF;
+  color: #112D4E;
+}
+
+.add-internship-form input:focus,
+.add-internship-form textarea:focus {
+  border-color: #3F72AF;
+  box-shadow: 0 0 6px #3F72AF;
+}
+
+.add-internship-form button {
+  width: 100%;
+  padding: 12px;
+  background: #3F72AF;
+  border: none;
+  border-radius: 14px;
+  color: #F9F7F7;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-internship-form button:hover {
+  background: #5A8CC1;
+  box-shadow: 0 0 12px #3F72AF;
+  transform: translateY(-1px);
+}
+
+/* ===== Action Buttons ===== */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.edit-btn {
+  background: #3F72AF;
+  color: #F9F7F7;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.edit-btn:hover {
+  background: #5A8CC1;
+  box-shadow: 0 0 12px #3F72AF;
+}
+
+.delete-btn {
+  background: #DBE2EF;
+  color: #112D4E;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.delete-btn:hover {
+  background: #5A8CC1;
+  color: #F9F7F7;
+  box-shadow: 0 0 12px rgba(63, 114, 175, 0.3);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  width: 400px;
+  max-width: 90%;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0,173,181,0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #00ADB5;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.apply-btn, .modal-content button {
+  background: #00ADB5;
+  color: #fff;
+}
+
+.apply-btn:hover, .modal-content button:hover {
+  background: #08c1c9;
+}
+
+/* Close Button */
+.close-btn {
+  margin-top: 10px;
+  background: #DB4437;
+}
+
+/* Visit Website Button */
+.visit-btn {
+  margin-top: 8px;
+  background: #3F72AF;
+}
+
+/* Applications list */
+.applications-list {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.applicant-card {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 0;
+}
+
+/* ===== Existing Styles (your code above remains unchanged) ===== */
+
+/* ===== RESPONSIVE DESIGN (Added for Mobile and Tablets) ===== */
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .home-left {
+    max-width: 90%;
+  }
+
+  .home-img {
+    width: 220px;
+  }
+
+  .auth-panel {
+    width: 85%;
+    padding: 25px;
+  }
+
+  .add-internship-panel {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .navbar .logo {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .navbar .nav-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Homepage */
+  .home-container {
+    flex-direction: column;
+    padding: 30px 16px;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .brand {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  /* Auth Panels */
+  .auth-panel {
+    width: 95%;
+    padding: 24px 18px;
+  }
+
+  .auth-panel input {
+    width: 100%;
+  }
+
+  /* Internship Cards */
+  .internship-card {
+    width: 92%;
+    margin: 15px auto;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Modals */
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  /* Add Internship */
+  .add-internship-panel {
+    padding: 22px 16px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 1.7rem;
+  }
+
+  .navbar .logo img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .navbar .nav-btn {
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  /* ===== Navbar Responsive Fixes ===== */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+
+  .logo span {
+    font-size: 1.3rem;
+  }
+
+  .nav-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-btn.logout {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
+
+
+  .home-img {
+    width: 180px;
+  }
+
+  .auth-panel {
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 14px;
+  }
+
+  .add-internship-form input,
+  .add-internship-form textarea {
+    font-size: 14px;
+  }
+
+  .add-internship-form button {
+    font-size: 15px;
+  }
+
+  .internship-card {
+    padding: 18px;
+  }
+
+  .modal-content {
+    padding: 16px;
+    width: 95%;
+  }
+}
+
+/* ===== Toast Notification Styling ===== */
+.toast-message {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Toast Colors */
+.toast-message.success {
+  background: rgba(24, 134, 70, 0.9);
+  border: 1px solid rgba(24, 134, 70, 0.9);
+}
+
+.toast-message.error {
+  background: rgba(231, 76, 60, 0.9);
+  border: 1px solid rgba(192, 57, 43, 0.9);
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input, .filter-input {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 220px;
+  transition: 0.2s;
+}
+
+.search-input:focus, .filter-input:focus {
+  outline: none;
+  border-color: #3F72AF;
+  box-shadow: 0 0 5px rgba(63, 114, 175, 0.3);
+}
+
+/* ===== Modern Search Bar ===== */
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px; /* longer search bar */
+  margin: 0 auto 20px auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 40px; /* padding-left for icon */
+  border-radius: 50px; /* rounded edges */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3F72AF;
+  box-shadow: 0 0 10px rgba(63, 114, 175, 0.3);
+}
+
+.filter-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #3F72AF;
+  cursor: pointer;
+  font-size: 1.2rem; /* slightly bigger icon */
+}
+
+.skills-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skill-item {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.skill-item:hover {
+  background-color: #f0f4ff;
+}
+
+.clear-filter {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.selected-skill {
+  background-color: #3F72AF;
+  color: #fff;
+}
+
+
+.truncate-link {
+  display: inline-block;
+  max-width: 250px;  /* Change this to control the max visible width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+
